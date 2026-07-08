@@ -90,19 +90,55 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "PLACEHOLDER Project One",
+    title: "Chaduvuko",
     description:
-      "Describe what this project does, the problem it solves, and your role in building it.",
-    tech: ["Next.js", "TypeScript", "Tailwind"],
-    link: "",
-    github: "",
+      "A free learning platform covering cloud (Azure, AWS, GCP), data engineering, DBMS, networking, and AI/ML with production-level depth — 290+ lessons, an in-browser SQL playground, and an AI mentor for career advice and debugging help.",
+    tech: ["Next.js", "TypeScript", "DuckDB (WASM)", "Groq"],
+    link: "https://chaduvuko.com",
+    github: "https://github.com/Asil143/chaduvuko",
   },
   {
-    title: "PLACEHOLDER Project Two",
+    title: "BillVeil",
     description:
-      "Describe what this project does, the problem it solves, and your role in building it.",
-    tech: ["Python", "Flask"],
-    link: "",
-    github: "",
+      "An AI advocate that reads medical bills and insurance denials, flags overcharges against Medicare rates, and drafts dispute letters and negotiation scripts — 30+ free tools, no signup.",
+    tech: ["Next.js", "Groq", "Llama 3.3 70B"],
+    link: "https://billveil.com",
+    github: "https://github.com/Asil143/billveil",
+  },
+  {
+    title: "StatusClock",
+    description:
+      "AI-powered immigration guidance and deadline tracking for international students on F-1, OPT, and H-1B status.",
+    tech: ["Next.js", "Clerk", "Anthropic Claude"],
+    link: "https://statusclock.com",
+    github: "https://github.com/Asil143/immigration",
+  },
+  {
+    title: "UniBank",
+    description:
+      "A mobile banking app built for international students — cross-border transfers at real FX rates, a credit-builder roadmap, and Zelle-style payments across iOS, Android, and web.",
+    tech: ["React Native", "Expo", "Supabase"],
+    link: "https://unibank-expo.vercel.app",
+  },
+  {
+    title: "GalliExpress",
+    description:
+      "A 3-sided hyperlocal delivery marketplace — customer, partner, and rider apps — built for Tier-3 Andhra Pradesh towns that Swiggy and Zomato don't reach.",
+    tech: ["React Native", "Firebase", "Firestore"],
+    github: "https://github.com/Asil143/GalliExpress",
+  },
+  {
+    title: "Shine On Call",
+    description:
+      "A production booking platform for a mobile car wash & detailing business — public booking site, customer account portal, and admin dashboard in one app.",
+    tech: ["Next.js", "PostgreSQL", "Prisma", "Stripe"],
+    link: "https://shineoncall.com",
+  },
+  {
+    title: "Aexacore",
+    description:
+      "A web design micro-agency delivering fast, mobile-first websites for local businesses in 7 days — live client sites for an auto shop, a restaurant, a salon, and a plumbing company.",
+    tech: ["HTML/CSS/JS", "Vercel"],
+    link: "https://aexacore.com",
   },
 ];
