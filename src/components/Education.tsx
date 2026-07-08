@@ -1,30 +1,40 @@
 import { education } from "@/data/profile";
 import Section from "./Section";
+import Reveal from "./Reveal";
 
 export default function Education() {
   return (
     <Section id="education" title="Education">
-      <div className="flex flex-col gap-8">
-        {education.map((edu) => (
-          <div key={edu.school} className="flex flex-col gap-1">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-              <h3 className="font-semibold">{edu.school}</h3>
-              <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                {edu.startYear} – {edu.endYear}
-              </span>
+      <div className="relative flex flex-col gap-10">
+        <div className="absolute top-2 bottom-2 left-[5px] w-px bg-border" />
+        {education.map((edu, i) => (
+          <Reveal key={edu.school} delay={i * 0.08}>
+            <div className="relative pl-8">
+              <span className="absolute top-1.5 left-0 h-[11px] w-[11px] rounded-full border-2 border-accent bg-background" />
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                <h3 className="font-semibold">{edu.school}</h3>
+                <span className="text-sm text-muted">
+                  {edu.startYear} – {edu.endYear}
+                </span>
+              </div>
+              <p className="mt-1 text-sm text-muted">
+                {edu.degree}
+                {edu.field ? `, ${edu.field}` : ""}
+              </p>
+              {edu.gpa && (
+                <p className="mt-1 text-sm font-medium text-accent">
+                  {edu.gpa}
+                </p>
+              )}
+              {edu.details && edu.details.length > 0 && (
+                <ul className="mt-2 list-disc pl-5 text-sm text-muted">
+                  {edu.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              )}
             </div>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              {edu.degree}, {edu.field}
-              {edu.gpa ? ` · GPA: ${edu.gpa}` : ""}
-            </p>
-            {edu.details && edu.details.length > 0 && (
-              <ul className="mt-2 list-disc pl-5 text-sm text-zinc-600 dark:text-zinc-400">
-                {edu.details.map((detail) => (
-                  <li key={detail}>{detail}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+          </Reveal>
         ))}
       </div>
     </Section>
