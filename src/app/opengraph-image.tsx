@@ -20,8 +20,8 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#08080b",
-          color: "#f3f3f6",
+          background: "#fcfcfc",
+          color: "#101014",
           padding: "72px",
           fontFamily: "Arial, sans-serif",
         }}
@@ -31,7 +31,7 @@ export default function Image() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            color: "#8b8cff",
+            color: "#5b5ce8",
             fontSize: "28px",
             letterSpacing: "4px",
             textTransform: "uppercase",
@@ -57,7 +57,7 @@ export default function Image() {
             style={{
               margin: 0,
               maxWidth: "920px",
-              color: "#c7c7d4",
+              color: "#6b6b76",
               fontSize: "34px",
               lineHeight: 1.25,
             }}
@@ -70,7 +70,7 @@ export default function Image() {
           style={{
             display: "flex",
             gap: "18px",
-            color: "#f3f3f6",
+            color: "#101014",
             fontSize: "26px",
           }}
         >
@@ -79,10 +79,10 @@ export default function Image() {
               <div
                 key={item}
                 style={{
-                  border: "1px solid rgba(255,255,255,0.18)",
+                  border: "1px solid rgba(16,16,20,0.12)",
                   borderRadius: "18px",
                   padding: "14px 20px",
-                  background: "rgba(255,255,255,0.05)",
+                  background: "rgba(16,16,20,0.03)",
                 }}
               >
                 {item}
