@@ -167,7 +167,7 @@ export const experience: Experience[] = [
 export type Certification = {
   name: string;
   issuer: string;
-  emoji: string;
+  badge: string;
   status: string;
 };
 
@@ -175,25 +175,25 @@ export const certifications: Certification[] = [
   {
     name: "Databricks Certified Data Engineer Professional",
     issuer: "Databricks",
-    emoji: "🧱",
+    badge: "/certifications/databricks.png",
     status: "Certified",
   },
   {
     name: "AWS Certified Data Engineer - Associate",
     issuer: "Amazon Web Services",
-    emoji: "☁️",
+    badge: "/certifications/aws.png",
     status: "Certified",
   },
   {
     name: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
     issuer: "Microsoft",
-    emoji: "🪟",
+    badge: "/certifications/microsoft.svg",
     status: "Certified",
   },
   {
     name: "Snowflake SnowPro Core Certification (COF-C03)",
     issuer: "Snowflake",
-    emoji: "❄️",
+    badge: "/certifications/snowflake.png",
     status: "Certified",
   },
 ];
