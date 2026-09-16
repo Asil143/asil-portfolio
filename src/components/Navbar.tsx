@@ -1,18 +1,26 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import { profile } from "@/data/profile";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
   { href: "#about", label: "About" },
-  { href: "#education", label: "Education" },
+  { href: "#what-i-build", label: "Build" },
+  { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
+  { href: "#case-studies", label: "Case Studies" },
+  { href: "#highlights", label: "Highlights" },
+  { href: "#principles", label: "Principles" },
+  { href: "#projects", label: "Products" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 200,
@@ -26,12 +34,12 @@ export default function Navbar() {
         style={{ scaleX }}
         className="absolute inset-x-0 top-0 h-[2px] origin-left bg-accent"
       />
-      <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <a href="#" className="font-semibold tracking-tight">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-8 py-4 lg:px-10">
+        <a href="#" className="shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:text-xl">
           {profile.name}
         </a>
-        <div className="flex items-center gap-6">
-          <ul className="flex gap-4 overflow-x-auto text-xs text-muted sm:gap-6 sm:text-sm">
+        <div className="flex min-w-0 items-center gap-6">
+          <ul className="hidden min-w-0 gap-4 whitespace-nowrap text-xs text-muted sm:gap-5 sm:text-sm xl:flex">
             {links.map((link) => (
               <li key={link.href} className="shrink-0">
                 <a
@@ -43,9 +51,53 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          {profile.links.resume && (
+            <a
+              href={profile.links.resume}
+              download
+              className="hidden shrink-0 rounded-full border border-border px-3.5 py-1.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent xl:inline-flex"
+            >
+              Resume
+            </a>
+          )}
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-accent hover:text-accent xl:hidden"
+          >
+            {open ? <X aria-hidden="true" size={17} /> : <Menu aria-hidden="true" size={17} />}
+          </button>
           <ThemeToggle />
         </div>
       </nav>
+      {open && (
+        <div className="border-t border-border bg-background/95 px-8 py-4 shadow-sm xl:hidden">
+          <div className="mx-auto grid max-w-6xl gap-2 sm:grid-cols-2">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+            {profile.links.resume && (
+              <a
+                href={profile.links.resume}
+                download
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2 text-sm font-medium text-accent transition-colors hover:bg-surface"
+              >
+                Download Resume
+              </a>
+            )}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

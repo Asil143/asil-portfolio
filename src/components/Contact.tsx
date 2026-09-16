@@ -7,8 +7,9 @@ export default function Contact() {
     <Section id="contact" title="Get in Touch">
       <Reveal delay={0.1}>
         <p className="mb-6 max-w-xl text-base leading-relaxed text-muted">
-          I&apos;m open to new opportunities and collaborations. Feel free to
-          reach out.
+          Based in {profile.location}. I&apos;m open to senior data engineering
+          conversations around cloud platforms, lakehouse modernization,
+          streaming systems, governance, and AI data infrastructure.
         </p>
         <div className="flex flex-wrap gap-4 text-sm font-medium">
           <a
@@ -35,6 +36,15 @@ export default function Contact() {
               className="rounded-full border border-border px-5 py-2.5 transition-colors hover:border-accent hover:text-accent"
             >
               LinkedIn
+            </a>
+          )}
+          {profile.links.resume && (
+            <a
+              href={profile.links.resume}
+              download
+              className="rounded-full border border-border px-5 py-2.5 transition-colors hover:border-accent hover:text-accent"
+            >
+              Resume
             </a>
           )}
         </div>

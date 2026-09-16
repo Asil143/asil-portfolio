@@ -15,8 +15,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} | ${profile.title}`,
+  metadataBase: new URL("https://asilkamepalli.com"),
+  title: `${profile.name} | Senior Data Engineer - Spark, Databricks, Snowflake, AWS, Azure`,
   description: profile.tagline,
+  keywords: [
+    "Senior Data Engineer",
+    "Cloud Data Engineer",
+    "PySpark",
+    "Apache Spark",
+    "Databricks",
+    "Snowflake",
+    "Apache Airflow",
+    "dbt",
+    "Kafka",
+    "AWS",
+    "Azure",
+    "Delta Lake",
+    "Apache Iceberg",
+    "Lakehouse",
+    "Data Engineering",
+    "RAG Data Pipelines",
+  ],
+  openGraph: {
+    title: `${profile.name} | Senior Data Engineer`,
+    description: profile.tagline,
+    type: "website",
+    url: "https://asilkamepalli.com",
+  },
+  alternates: {
+    canonical: "https://asilkamepalli.com",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +52,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    mainEntity: {
+      "@type": "Person",
+      name: profile.name,
+      jobTitle: profile.title,
+      email: `mailto:${profile.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "San Diego",
+        addressRegion: "CA",
+        addressCountry: "US",
+      },
+      url: "https://asilkamepalli.com",
+      sameAs: [profile.links.linkedin, profile.links.github],
+      knowsAbout: [
+        "Data Engineering",
+        "PySpark",
+        "Apache Spark",
+        "Databricks",
+        "Snowflake",
+        "Apache Airflow",
+        "dbt",
+        "Kafka",
+        "AWS",
+        "Azure",
+        "Delta Lake",
+        "Apache Iceberg",
+        "Lakehouse Architecture",
+        "RAG Data Pipelines",
+      ],
+    },
+  };
+
   return (
     <html
       lang="en"
@@ -31,6 +94,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="noise flex min-h-full flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

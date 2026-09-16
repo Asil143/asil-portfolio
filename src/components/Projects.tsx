@@ -7,7 +7,14 @@ import Reveal from "./Reveal";
 
 export default function Projects() {
   return (
-    <Section id="projects" title="Projects">
+    <Section id="projects" title="Independent Products">
+      <Reveal delay={0.05}>
+        <p className="mb-8 max-w-2xl text-sm leading-relaxed text-muted">
+          Selected product and software builds outside client work. Professional
+          data-engineering architecture work is separated into the case studies
+          above.
+        </p>
+      </Reveal>
       <div className="grid gap-6 sm:grid-cols-2">
         {projects.map((project, i) => (
           <Reveal key={project.title} delay={i * 0.08}>

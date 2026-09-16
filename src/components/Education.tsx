@@ -12,27 +12,11 @@ export default function Education() {
             <div className="relative pl-8">
               <span className="absolute top-1.5 left-0 h-[11px] w-[11px] rounded-full border-2 border-accent bg-background" />
               <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                <h3 className="font-semibold">{edu.school}</h3>
-                <span className="text-sm text-muted">
-                  {edu.startYear} – {edu.endYear}
-                </span>
+                <h3 className="font-semibold">{edu.degree}</h3>
               </div>
               <p className="mt-1 text-sm text-muted">
-                {edu.degree}
-                {edu.field ? `, ${edu.field}` : ""}
+                {edu.school}, {edu.location}
               </p>
-              {edu.gpa && (
-                <p className="mt-1 text-sm font-medium text-accent">
-                  {edu.gpa}
-                </p>
-              )}
-              {edu.details && edu.details.length > 0 && (
-                <ul className="mt-2 list-disc pl-5 text-sm text-muted">
-                  {edu.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
-              )}
             </div>
           </Reveal>
         ))}
