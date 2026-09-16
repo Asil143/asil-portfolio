@@ -166,14 +166,36 @@ export const experience: Experience[] = [
 
 export type Certification = {
   name: string;
+  issuer: string;
+  emoji: string;
   status: string;
 };
 
 export const certifications: Certification[] = [
-  { name: "Databricks Certified Data Engineer Professional", status: "Certified" },
-  { name: "AWS Certified Data Engineer - Associate", status: "Certified" },
-  { name: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)", status: "Certified" },
-  { name: "Snowflake SnowPro Core Certification (COF-C03)", status: "Certified" },
+  {
+    name: "Databricks Certified Data Engineer Professional",
+    issuer: "Databricks",
+    emoji: "🧱",
+    status: "Certified",
+  },
+  {
+    name: "AWS Certified Data Engineer - Associate",
+    issuer: "Amazon Web Services",
+    emoji: "☁️",
+    status: "Certified",
+  },
+  {
+    name: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
+    issuer: "Microsoft",
+    emoji: "🪟",
+    status: "Certified",
+  },
+  {
+    name: "Snowflake SnowPro Core Certification (COF-C03)",
+    issuer: "Snowflake",
+    emoji: "❄️",
+    status: "Certified",
+  },
 ];
 
 export type Highlight = {
