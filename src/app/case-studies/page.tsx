@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesIndexPage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
+    <main id="main-content" className="mx-auto max-w-4xl px-6 py-16 sm:py-20">
       <Link
         href="/#case-studies"
         className="text-sm font-medium text-muted transition-colors hover:text-accent"

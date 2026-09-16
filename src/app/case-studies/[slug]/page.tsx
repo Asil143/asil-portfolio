@@ -85,7 +85,7 @@ export default async function CaseStudyPage({ params }: Props) {
   };
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-10 sm:py-14">
+    <main id="main-content" className="mx-auto max-w-5xl px-6 py-10 sm:py-14">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
