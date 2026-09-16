@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/profile";
 import ThemeProvider from "@/components/ThemeProvider";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://asilkamepalli.com"),
+  metadataBase: new URL(SITE_URL),
   title: `${profile.name} | Senior Data Engineer - Spark, Databricks, Snowflake, AWS, Azure`,
   description: profile.tagline,
   keywords: [
@@ -40,10 +41,24 @@ export const metadata: Metadata = {
     title: `${profile.name} | Senior Data Engineer`,
     description: profile.tagline,
     type: "website",
-    url: "https://asilkamepalli.com",
+    url: SITE_URL,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} | Senior Data Engineer`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} | Senior Data Engineer`,
+    description: profile.tagline,
+    images: ["/opengraph-image"],
   },
   alternates: {
-    canonical: "https://asilkamepalli.com",
+    canonical: SITE_URL,
   },
 };
 
@@ -66,7 +81,7 @@ export default function RootLayout({
         addressRegion: "CA",
         addressCountry: "US",
       },
-      url: "https://asilkamepalli.com",
+      url: SITE_URL,
       sameAs: [profile.links.linkedin, profile.links.github],
       knowsAbout: [
         "Data Engineering",

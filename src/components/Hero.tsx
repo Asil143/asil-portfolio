@@ -2,6 +2,7 @@
 
 import { motion, type Variants } from "framer-motion";
 import { metrics, profile } from "@/data/profile";
+import { EASE_OUT } from "@/lib/site";
 
 const container: Variants = {
   hidden: {},
@@ -15,7 +16,7 @@ const item: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.6, ease: EASE_OUT },
   },
 };
 

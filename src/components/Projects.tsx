@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { projects } from "@/data/profile";
 import Section from "./Section";
 import Reveal from "./Reveal";
@@ -18,11 +15,7 @@ export default function Projects() {
       <div className="grid gap-6 sm:grid-cols-2">
         {projects.map((project, i) => (
           <Reveal key={project.title} delay={i * 0.08}>
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-xl border border-border bg-surface/50 p-5"
-            >
+            <div className="group relative flex h-full flex-col gap-3 overflow-hidden rounded-xl border border-border bg-surface/50 p-5 transition-transform duration-300 ease-out hover:-translate-y-1">
               <div className="absolute inset-x-0 top-0 h-[2px] scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
               <h3 className="font-semibold">{project.title}</h3>
               <p className="text-sm leading-relaxed text-muted">
@@ -60,7 +53,7 @@ export default function Projects() {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </div>
           </Reveal>
         ))}
       </div>

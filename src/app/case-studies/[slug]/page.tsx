@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import CaseStudySchematic from "@/components/CaseStudySchematic";
+import SpecGroup from "@/components/SpecGroup";
 import { caseStudies, profile } from "@/data/profile";
+import { SITE_URL } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -26,30 +28,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const url = `${SITE_URL}/case-studies/${study.slug}`;
+
   return {
     title: `${study.title} | ${profile.name}`,
     description: study.summary,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: `${study.title} | ${profile.name}`,
       description: study.summary,
       type: "article",
+      url,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: study.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${study.title} | ${profile.name}`,
+      description: study.summary,
+      images: ["/opengraph-image"],
     },
   };
-}
-
-function SpecGroup({ title, items }: { title: string; items: string[] }) {
-  return (
-    <div>
-      <h3 className="text-xs font-medium uppercase tracking-[0.18em] text-accent">
-        {title}
-      </h3>
-      <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted">
-        {items.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
 }
 
 export default async function CaseStudyPage({ params }: Props) {

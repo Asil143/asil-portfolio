@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   );
 
   if (!mounted) {
-    return <div className="h-9 w-9" />;
+    return <div className="h-9 w-9" aria-hidden="true" />;
   }
 
   const isDark = resolvedTheme === "dark";

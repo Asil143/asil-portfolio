@@ -310,7 +310,6 @@ export type Project = {
   tech: string[];
   link?: string;
   github?: string;
-  image?: string;
 };
 
 export type CaseStudy = {

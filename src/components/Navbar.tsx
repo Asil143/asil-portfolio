@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { profile } from "@/data/profile";
 import ThemeToggle from "./ThemeToggle";
 
@@ -21,6 +21,7 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 200,
@@ -28,14 +29,27 @@ export default function Navbar() {
     restDelta: 0.001,
   });
 
+  useEffect(() => {
+    if (open) {
+      firstMobileLinkRef.current?.focus();
+    }
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/70 backdrop-blur-xl">
       <motion.div
         style={{ scaleX }}
         className="absolute inset-x-0 top-0 h-[2px] origin-left bg-accent"
       />
-      <nav className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-8 py-4 lg:px-10">
-        <a href="#" className="shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:text-xl">
+      <nav
+        aria-label="Primary"
+        className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-8 py-4 lg:px-10"
+      >
+        <a
+          href="#"
+          aria-label={`${profile.name}, back to top`}
+          className="shrink-0 whitespace-nowrap text-lg font-semibold tracking-tight sm:text-xl"
+        >
           {profile.name}
         </a>
         <div className="flex min-w-0 items-center gap-6">
@@ -64,6 +78,7 @@ export default function Navbar() {
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground/70 transition-colors hover:border-accent hover:text-accent xl:hidden"
           >
@@ -73,11 +88,15 @@ export default function Navbar() {
         </div>
       </nav>
       {open && (
-        <div className="border-t border-border bg-background/95 px-8 py-4 shadow-sm xl:hidden">
+        <div
+          id="mobile-nav"
+          className="border-t border-border bg-background/95 px-8 py-4 shadow-sm xl:hidden"
+        >
           <div className="mx-auto grid max-w-6xl gap-2 sm:grid-cols-2">
-            {links.map((link) => (
+            {links.map((link, index) => (
               <a
                 key={link.href}
+                ref={index === 0 ? firstMobileLinkRef : undefined}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-surface hover:text-foreground"
