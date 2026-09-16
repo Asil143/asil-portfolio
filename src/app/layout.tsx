@@ -75,6 +75,7 @@ export default function RootLayout({
       name: profile.name,
       jobTitle: profile.title,
       email: `mailto:${profile.email}`,
+      telephone: profile.phone,
       address: {
         "@type": "PostalAddress",
         addressLocality: "San Diego",

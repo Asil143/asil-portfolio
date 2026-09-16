@@ -7,9 +7,10 @@ export const profile = {
     "Python • SQL • PySpark • Apache Spark • Databricks • Snowflake • Airflow • dbt • Kafka • AWS • Azure",
   tagline:
     "I design, build, optimize, and operate production-grade data platforms for analytics, real-time decisioning, and AI/ML enablement.",
-  bio: "Senior Data Engineer with 5+ years of experience building production-grade data platforms across Azure, AWS, Databricks, Snowflake, Spark, Airflow, dbt, and Kafka. I specialize in batch and streaming ingestion, CDC, dimensional modeling, lakehouse architecture, data quality, governance, observability, CI/CD, infrastructure as code, and performance/cost optimization.",
+  bio: "Senior Data Engineer with 5+ years of experience designing, building, optimizing, and operating production-grade data platforms for analytics, operational reporting, real-time decisioning, and AI/ML enablement across Azure, AWS, Databricks, Snowflake, Spark, Airflow, dbt, and Kafka. I own ambiguous data problems end-to-end — from source-system analysis and resilient pipeline design to production support, root-cause remediation, and trusted data-product delivery — specializing in batch and streaming ingestion, CDC, dimensional modeling, lakehouse architecture, data quality, governance, observability, CI/CD, infrastructure as code, and performance/cost optimization.",
   location: "San Diego, CA",
   email: "asilkamepalli9@gmail.com",
+  phone: "+1 (331) 226-7117",
   links: {
     github: "https://github.com/Asil143",
     linkedin: "https://www.linkedin.com/in/asil-kamepalli",

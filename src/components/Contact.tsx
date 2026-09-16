@@ -18,6 +18,14 @@ export default function Contact() {
           >
             Email Me
           </a>
+          {profile.phone && (
+            <a
+              href={`tel:${profile.phone.replace(/[^+\d]/g, "")}`}
+              className="rounded-full border border-border px-5 py-2.5 transition-colors hover:border-accent hover:text-accent"
+            >
+              {profile.phone}
+            </a>
+          )}
           {profile.links.github && (
             <a
               href={profile.links.github}
