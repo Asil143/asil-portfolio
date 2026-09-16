@@ -10,7 +10,11 @@ export default function Education() {
         {education.map((edu, i) => (
           <Reveal key={edu.school} delay={i * 0.08}>
             <div className="relative pl-8">
-              <span className="absolute top-1.5 left-0 h-[11px] w-[11px] rounded-full border-2 border-accent bg-background" />
+              <span className="absolute top-1 left-0 flex h-3 w-3 items-center justify-center">
+                <span className="absolute h-10 w-10 rounded-full bg-accent/30 blur-lg" />
+                <span className="absolute h-6 w-6 animate-ping rounded-full border border-accent/60" />
+                <span className="relative h-3.5 w-3.5 rounded-full border-2 border-accent bg-accent shadow-[0_0_24px_rgba(139,140,255,0.95)]" />
+              </span>
               <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                 <h3 className="font-semibold">{edu.degree}</h3>
               </div>
