@@ -169,6 +169,7 @@ export type Certification = {
   issuer: string;
   badge: string;
   status: string;
+  verifyUrl?: string;
 };
 
 export const certifications: Certification[] = [
@@ -183,12 +184,14 @@ export const certifications: Certification[] = [
     issuer: "Amazon Web Services",
     badge: "/certifications/aws.png",
     status: "Certified",
+    verifyUrl: "https://www.credly.com/badges/17bc001e-35aa-45e1-8f2e-0e67102315fa/linked_in_profile",
   },
   {
     name: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)",
     issuer: "Microsoft",
     badge: "/certifications/microsoft.svg",
     status: "Certified",
+    verifyUrl: "https://learn.microsoft.com/en-us/users/asilkamepalli-9260/credentials/2fd04bba40cbe467",
   },
   {
     name: "Snowflake SnowPro Core Certification (COF-C03)",

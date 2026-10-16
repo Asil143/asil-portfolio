@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, ExternalLink } from "lucide-react";
 import { certifications } from "@/data/profile";
 import Section from "./Section";
 import Reveal from "./Reveal";
@@ -23,10 +23,23 @@ export default function Certifications() {
               <div>
                 <h3 className="font-semibold leading-snug">{cert.name}</h3>
                 <p className="mt-1 text-sm text-muted">{cert.issuer}</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent">
-                  <BadgeCheck aria-hidden="true" size={14} />
-                  {cert.status}
-                </span>
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-soft px-2.5 py-1 text-xs font-medium text-accent">
+                    <BadgeCheck aria-hidden="true" size={14} />
+                    {cert.status}
+                  </span>
+                  {cert.verifyUrl && (
+                    <a
+                      href={cert.verifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-1 text-xs font-medium text-muted transition-colors hover:border-accent hover:text-accent"
+                    >
+                      Verify
+                      <ExternalLink aria-hidden="true" size={12} />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </Reveal>
